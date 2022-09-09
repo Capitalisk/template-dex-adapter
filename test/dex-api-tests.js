@@ -221,7 +221,7 @@ describe('DEX API tests', async () => {
         assert.strictEqual(transactions[2].timestamp, 1662476536);
       });
 
-      it('should return transactions are lower than than fromTimestamp when order is desc', async () => {
+      it('should return transactions which are lower than than fromTimestamp when order is desc', async () => {
         let transactions =
           await adapterModule.actions.getOutboundTransactions.handler({
             params: {
