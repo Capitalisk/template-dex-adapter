@@ -201,7 +201,7 @@ describe('DEX API tests', async () => {
       // See both tests below, one expects asc while the API returns DESC
       // The other expects DESC and needs ASC for it to pass
       // FIXME: Using DESC Rather than ASC by default
-      it('should return transactions which are greater than fromTimestamp by default in asc order', async () => {
+      it('should return transactions which are greater than or equal to fromTimestamp by default in asc order', async () => {
         let transactions =
           await adapterModule.actions.getOutboundTransactions.handler({
             params: {
@@ -221,7 +221,7 @@ describe('DEX API tests', async () => {
         assert.strictEqual(transactions[2].timestamp, 1662476536);
       });
 
-      it('should return transactions which are lower than than fromTimestamp when order is desc', async () => {
+      it('should return transactions which are less than or equal to fromTimestamp when order is desc', async () => {
         let transactions =
           await adapterModule.actions.getOutboundTransactions.handler({
             params: {
